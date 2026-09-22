@@ -15,32 +15,49 @@
     return Math.max(months + 1, 0); // count the start month, as hh.uz / LinkedIn do
   }
 
-  function plural(n, one, few, many) {
+  var isEn = root.lang === 'en';
+
+  function plural(n, forms) {
+    if (isEn) return n === 1 ? forms[0] : forms[1];
     var m10 = n % 10, m100 = n % 100;
-    if (m10 === 1 && m100 !== 11) return one;
-    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return few;
-    return many;
+    if (m10 === 1 && m100 !== 11) return forms[0];
+    if (m10 >= 2 && m10 <= 4 && (m100 < 12 || m100 > 14)) return forms[1];
+    return forms[2];
   }
 
-  var ORDINALS = ['первый', 'второй', 'третий', 'четвёртый', 'пятый', 'шестой', 'седьмой', 'восьмой', 'девятый', 'десятый', 'одиннадцатый', 'двенадцатый'];
+  var I18N = isEn ? {
+    decimal: '.',
+    year: ['year', 'years'],
+    month: ['month', 'months'],
+    // "for six years" reads better in English than an ordinal
+    count: ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine', 'ten', 'eleven', 'twelve']
+  } : {
+    decimal: ',',
+    year: ['год', 'года', 'лет'],
+    month: ['месяц', 'месяца', 'месяцев'],
+    // "шестой год": the current, not yet completed year
+    count: ['первый', 'второй', 'третий', 'четвёртый', 'пятый', 'шестой', 'седьмой', 'восьмой', 'девятый', 'десятый', 'одиннадцатый', 'двенадцатый']
+  };
 
   document.querySelectorAll('[data-years-since]').forEach(function (el) {
     var m = monthsSince(el.dataset.yearsSince);
     el.textContent = el.hasAttribute('data-precise')
-      ? (Math.floor(m / 6) / 2).toString().replace('.', ',')
+      ? (Math.floor(m / 6) / 2).toString().replace('.', I18N.decimal)
       : Math.floor(m / 12);
   });
 
   document.querySelectorAll('[data-years-ordinal]').forEach(function (el) {
-    var year = Math.floor(monthsSince(el.dataset.yearsOrdinal) / 12);
-    if (ORDINALS[year]) el.textContent = ORDINALS[year];
+    var m = monthsSince(el.dataset.yearsOrdinal);
+    // RU counts the year in progress ("шестой"), EN rounds to the nearest year ("six")
+    var i = isEn ? Math.round(m / 12) : Math.floor(m / 12);
+    if (I18N.count[i]) el.textContent = I18N.count[i];
   });
 
   document.querySelectorAll('[data-duration-since]').forEach(function (el) {
     var m = monthsSince(el.dataset.durationSince);
     var y = Math.floor(m / 12), mo = m % 12, out = [];
-    if (y) out.push(y + ' ' + plural(y, 'год', 'года', 'лет'));
-    if (mo) out.push(mo + ' ' + plural(mo, 'месяц', 'месяца', 'месяцев'));
+    if (y) out.push(y + ' ' + plural(y, I18N.year));
+    if (mo) out.push(mo + ' ' + plural(mo, I18N.month));
     el.textContent = out.join(' ');
   });
 
