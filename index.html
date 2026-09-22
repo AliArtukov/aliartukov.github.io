@@ -1,347 +1,494 @@
 <!DOCTYPE html>
-<html class="no-js" lang="en">
-
+<html lang="ru">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>My Portfolio</title>
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="stylesheet" href="libs/font-awesome/css/font-awesome.min.css">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/styles.css" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ali Artukov — Head of Java Development</title>
+  <meta name="description" content="Ali Artukov — Head of Java Development в Click (Ташкент). Java, Spring, микросервисы, платёжные интеграции, руководство Java-командами и стандарты разработки.">
+  <meta name="author" content="Ali Artukov">
+  <link rel="canonical" href="https://aliartukov.github.io/">
+
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://aliartukov.github.io/">
+  <meta property="og:title" content="Ali Artukov — Head of Java Development">
+  <meta property="og:description" content="Java, Spring, микросервисы и платёжные интеграции. Руковожу Java-направлением в Click.">
+  <meta property="og:locale" content="ru_RU">
+  <meta name="twitter:card" content="summary">
+
+  <meta name="theme-color" content="#0b0f17" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f7f8fb" media="(prefers-color-scheme: light)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+
+  <script>
+    // Apply saved theme before first paint to avoid a flash
+    try {
+      var t = localStorage.getItem('theme');
+      if (t) document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  </script>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ali Artukov",
+    "jobTitle": "Head of Java Development",
+    "worksFor": { "@type": "Organization", "name": "Click", "url": "https://click.uz" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Tashkent", "addressCountry": "UZ" },
+    "email": "mailto:ali.artukov@gmail.com",
+    "url": "https://aliartukov.github.io/",
+    "sameAs": [
+      "https://www.linkedin.com/in/aliartukov",
+      "https://github.com/AliArtukov",
+      "https://stackoverflow.com/users/19207374/ali-artukov"
+    ],
+    "knowsAbout": ["Java", "Spring Boot", "Microservices", "Payment systems", "Engineering management"]
+  }
+  </script>
 </head>
 
 <body>
-<div id="mobile-menu-open" class="shadow-large">
-    <i class="fa fa-bars" aria-hidden="true"></i>
-</div>
-<!-- End #mobile-menu-toggle -->
-<header>
-    <div id="mobile-menu-close">
-        <span>Close</span> <i class="fa fa-times" aria-hidden="true"></i>
+<a class="skip-link" href="#main">К содержанию</a>
+
+<header class="nav" id="top">
+  <div class="nav__inner">
+    <a class="nav__logo" href="#top" aria-label="Наверх">
+      <span class="monogram">AA</span>
+      <span class="nav__name">Ali Artukov</span>
+    </a>
+    <nav aria-label="Разделы">
+      <ul class="nav__links" id="nav-links">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#highlights">Достижения</a></li>
+        <li><a href="#experience">Опыт</a></li>
+        <li><a href="#skills">Навыки</a></li>
+        <li><a href="#learning">Обучение</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Сменить тему">
+        <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+      <button class="icon-btn nav__burger" id="nav-toggle" type="button" aria-label="Меню" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      </button>
     </div>
-    <ul id="menu" class="shadow">
-        <li>
-            <a href="#about">About</a>
-        </li>
-        <li>
-            <a href="#experience">Experience</a>
-        </li>
-        <li>
-            <a href="#education">Education</a>
-        </li>
-        <!--        <li>-->
-        <!--            <a href="#projects">Projects</a>-->
-        <!--        </li>-->
-        <li>
-            <a href="#skills">Skills</a>
-        </li>
-        <li>
-            <a href="#contact2">Contact</a>
-        </li>
-    </ul>
+  </div>
 </header>
-<!-- End header -->
 
-<div id="lead">
-    <div id="lead-content">
-        <h1>Ali Artukov</h1>
-        <h2>Java Developer</h2>
-        <a href="cv/Artukov Ali.pdf" target="_blank" class="btn-rounded-white">Download Resume in PDF</a>
-        <a href="cv/Artukov Ali.doc" target="_blank" class="btn-rounded-white">Download Resume in DOC</a>
+<main id="main">
+
+  <!-- Hero -->
+  <section class="hero" id="hero">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <p class="eyebrow"><span class="dot"></span>Head of Java Development · Click</p>
+      <h1 class="hero__title">Ali Artukov</h1>
+      <p class="hero__lead">
+        Строю Java-направление в платёжном сервисе Click: от архитектуры микросервисов
+        и стандартов разработки до найма и развития команд.
+      </p>
+      <div class="hero__meta">
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          Ташкент, Узбекистан
+        </span>
+        <span>
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m8 9-4 3 4 3M16 9l4 3-4 3M14 5l-4 14"/></svg>
+          Java · Spring · Microservices
+        </span>
+      </div>
+      <div class="hero__cta">
+        <a class="btn btn--primary" href="mailto:ali.artukov@gmail.com">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>
+          Написать
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/aliartukov" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>
+          LinkedIn
+        </a>
+        <button class="btn btn--ghost" type="button" id="print-cv">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>
+          Резюме в PDF
+        </button>
+      </div>
+
+      <dl class="stats">
+        <div class="stat">
+          <dt>лет в Java-разработке</dt>
+          <dd><span data-years-since="2020-12">5</span>+</dd>
+        </div>
+        <div class="stat">
+          <dt>лет в Click</dt>
+          <dd><span data-years-since="2022-03" data-precise>4.5</span></dd>
+        </div>
+        <div class="stat">
+          <dt>ролей в Click: от разработчика до Head</dt>
+          <dd>5</dd>
+        </div>
+        <div class="stat">
+          <dt>шлюзов к банкам, платёжным и госсистемам</dt>
+          <dd>7+</dd>
+        </div>
+      </dl>
     </div>
-    <!-- End #lead-content -->
+  </section>
 
-    <div id="lead-overlay"></div>
-
-    <div id="lead-down">
-            <span>
-                <i class="fa fa-chevron-down" aria-hidden="true"></i>
-            </span>
+  <!-- About -->
+  <section class="section" id="about">
+    <div class="container two-col">
+      <div class="section__head">
+        <p class="kicker">01 / Обо мне</p>
+        <h2>Инженер, который вырос в руководителя направления</h2>
+      </div>
+      <div class="prose reveal">
+        <p>
+          Разрабатываю на Java <span data-years-ordinal="2020-12">шестой</span> год, большую часть пути в компании
+          <strong>Click</strong>: прошёл путь от Java-разработчика до Head of Java Development.
+        </p>
+        <p>
+          Одно из ключевых достижений: мы построили Java-направление практически с нуля. Вместо того
+          чтобы расширять legacy на PHP и Node.js, спроектировали и запустили ряд сервисов на микросервисной
+          архитектуре, включая систему фискализации платежей и интеграцию для проведения платежей Visa/Mastercard.
+        </p>
+        <p>
+          Управленческий опыт рос вместе с задачами: тимлид команды из 5 разработчиков, затем руководитель
+          Java-гильдии, а сейчас отвечаю за всех Java-разработчиков компании, от найма до архитектурных решений
+          и стандартов разработки. Отдельно фокусируюсь на стандартизации проектов: считаю её основой для
+          роста команд без потери качества.
+        </p>
+        <p class="goal">
+          <span class="kicker">Цель</span>
+          Развитие в сторону CTO в технологичной компании.
+        </p>
+      </div>
     </div>
-    <!-- End #lead-down -->
-</div>
-<!-- End #lead -->
+  </section>
 
-<div id="about">
+  <!-- Highlights -->
+  <section class="section section--alt" id="highlights">
     <div class="container">
-        <div class="row">
-            <div class="col-md-4">
-                <h2 class="heading">About Me</h2>
-            </div>
-            <div class="col-md-8">
-                <p>
-                    Я старший Java разработчик с более чем трехлетним опытом в создании высоконагруженных веб-приложений
-                    и микросервисов. Работал в ведущих IT-компаниях Узбекистана, владею множеством технологий, включая
-                    Java, Spring, Docker, PostgreSQL, Redis, Kafka и CI/CD. Стремлюсь к постоянному развитию и внедрению
-                    новых технологий для достижения бизнес-целей.
-                </p>
-            </div>
-        </div>
+      <div class="section__head">
+        <p class="kicker">02 / Достижения</p>
+        <h2>Что удалось сделать</h2>
+      </div>
+      <div class="cards">
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 3 8l9 5 9-5-9-5z"/><path d="m3 13 9 5 9-5"/></svg></div>
+          <h3>Java-направление с нуля</h3>
+          <p>Вместо расширения legacy на PHP и Node.js спроектировали и запустили в Click ряд сервисов на микросервисной архитектуре.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2V3z"/><path d="M9 8h6M9 12h6"/></svg></div>
+          <h3>Фискализация платежей (OFD)</h3>
+          <p>Сервис фискализации онлайн-чеков по платежам, проведённым через CLICK: Java 17, Spring, ActiveMQ Artemis, PostgreSQL, Vault.</p>
+        </article>
+        <article class="card card--accent reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 21V5a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v16M3 21h12M14 9h2a2 2 0 0 1 2 2v5a1.5 1.5 0 0 0 3 0V8l-3-3"/><path d="M7 7h4"/></svg></div>
+          <h3>Первые на рынке: чеки для АЗС</h3>
+          <p>Первыми среди платёжных сервисов реализовали фискализацию чеков для автозаправок с передачей объёма проданного топлива. Это помогло сохранить несколько крупных партнёров с многомиллиардными оборотами.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20M6 15h4"/></svg></div>
+          <h3>Платежи Visa / Mastercard</h3>
+          <p>Интеграция для проведения платежей по международным картам, а также шлюзы к CyberSource, PayGine, RocketGate, HUMO, soliq.uz, Tasnif и Генпрокуратуре.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 11l3 3 8-8"/><path d="M20 12v7a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h9"/></svg></div>
+          <h3>Единый стандарт Java-разработки</h3>
+          <p>Внедряю общий стандарт разработки, поддержки и приёма Java-проектов. Разбираю текущие и завершённые проекты, чтобы закреплять лучшие практики и не повторять прошлых ошибок.</p>
+        </article>
+        <article class="card reveal">
+          <div class="card__icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><rect x="7" y="7" width="10" height="10" rx="2"/><path d="M10 10h4v4h-4z"/></svg></div>
+          <h3>AI в разработке и менеджменте</h3>
+          <p>Эксперименты с Spec-Driven Development на Claude Code, AI-документирование задач и backlog. Провожу встречи Java-гильдии по опыту применения AI.</p>
+        </article>
+      </div>
     </div>
-</div>
-<!-- End #about -->
+  </section>
 
-<div id="experience" class="background-alt">
-    <h2 class="heading">Experience</h2>
-    <div id="experience-timeline">
-        <div data-date="March 2022 – Current day">
-            <h3>CLICK</h3>
-            <h4>Старший Java Разработчик</h4>
-            <p>
-            <ul>
-                <li>Использовали PostgreSQL, Apache Maven, Spring Framework (Spring Boot, Spring Web, Spring
-                    JPA, Spring Security) и микросервисную архитектуру для создания масштабируемых и
-                    надежных сервисов.
-                </li>
-                <li>Реализовали RESTful API для интеграции с внешними сервисами и управления
-                    идентификацией и аутентификацией.
-                </li>
-                <li>Внедряли CI/CD процессов с использованием GitLab CI, что повысило скорость развертывания
-                    и тестирования.
-                </li>
-                <li>Применяли Docker для контейнеризации приложений и управления зависимостями.</li>
-                <li>Использовали Apache Kafka, Apache ActiveMQ и Redis для обеспечения эффективной обработки
-                    сообщений и кэширования.
-                </li>
-                <li>Настроили Prometheus, Grafana и Signoz (Log, Metrics and Traces) для мониторинга и анализа
-                    производительности микросервисов команды.
-                </li>
-                <li>Участвовал в проектировании и реализации архитектуры системы, что способствовало
-                    улучшению производительности и надежности сервисов команды.
-                </li>
-            </ul>
-            </p>
-        </div>
+  <!-- Experience -->
+  <section class="section" id="experience">
+    <div class="container">
+      <div class="section__head">
+        <p class="kicker">03 / Опыт</p>
+        <h2>Опыт работы</h2>
+        <p class="section__sub">Всего <span data-duration-since="2020-12">5 лет 10 месяцев</span> коммерческой разработки</p>
+      </div>
 
-        <div data-date="September 2021 – February 2022">
-            <h3>Invest Finance Bank</h3>
-            <h4>Java Разработчик</h4>
-            <p>
-            <ul>
-                <li> Работал над проектами на основе микросервисной архитектуры, выполняя задачи по
-                    устранению багов и добавлению новых функций.
-                </li>
-                <li> Внедрил улучшенные сообщения об ошибках для отображения клиентам.
-                </li>
-                <li> Реализовал проверку лимитов транзакций: на одну транзакцию, дневной и месячный
-                    лимиты.
-                </li>
-                <li>Интегрировал Apache Kafka для поддержки асинхронной связи между микросервисами.</li>
-                <li> Выполнял перезапуск процессов через API или базу данных Oracle по заявкам, созданным в
-                    ITSM.
-                </li>
-                <li>Использовал следующие технологии: OracleDB, Apache Maven, Quarkus Framework, JUnit4, Java
-                    11, RestFullAPI, Git, BitBucket, Gitea, Atlassian Jira, Apache Kafka, Linux.
-                </li>
-            </ul>
-            </p>
-        </div>
+      <ol class="timeline">
 
-        <div data-date="December 2020 – August 2021">
-            <h3>INFLEX INC</h3>
-            <h4>Java Разработчик</h4>
-            <p>
-            <ul>
-                <li>Разработка и поддержка микросервисов для MVP стартапа PDP Online — платформы для
-                    онлайн-обучения программированию с последующей стажировкой.
-                </li>
-                <li> Использовал подход database per microservice для обеспечения независимости каждого
-                    сервиса и улучшенной масштабируемости системы.
-                </li>
-                <li> Интеграция платформы с платежным сервисом CLICK для обработки оплаты за курсы.
-                </li>
-                <li>Участвовал во всех этапах жизненного цикла разработки: проектирование архитектуры,
-                    разработка, тестирование и внедрение.
-                </li>
-                <li>Интеграция с внешними сервисами, обеспечение надежности и устойчивости системы.
-                </li>
-                <li> Использовал следующие технологии: PostgreSQL, Apache Maven, Spring Framework (Spring
-                    Boot, Spring Web, Spring JPA, Spring Security), Microservice Architecture, JUnit4, Java 11,
-                    RestFullAPI,
-                    Git, Github, CLICKUP.
-                </li>
-            </ul>
-            </p>
-        </div>
-    </div>
-</div>
-<!-- End #experience -->
-
-<div id="education">
-    <h2 class="heading">Education</h2>
-    <div class="education-block">
-        <h3>College of Coal Industry</h3>
-        <span class="education-date">September 2013 - August 2016</span>
-        <h4>General Construction, Builder, Painter</h4>
-        <!--        <p>-->
-        <!--            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat laoreet-->
-        <!--            urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget efficitur libero. Morbi-->
-        <!--            dapibus porta quam laoreet placerat.-->
-        <!--        </p>-->
-    </div>
-    <!-- End .education-block -->
-
-    <div class="education-block">
-        <h3>PDP IT Academy, Java Development</h3>
-        <span class="education-date">June 2020 - November 2020</span>
-        <h4>JAVA BOOTCAMP</h4>
-        <!--        <ul>-->
-        <!--            <li>-->
-        <!--                Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--                Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-        <!--            </li>-->
-        <!--            <li>-->
-        <!--                Lorem ipsum dolor sit amet, consectetur adipiscing elit.-->
-        <!--            </li>-->
-        <!--        </ul>-->
-    </div>
-    <!-- End .education-block -->
-</div>
-<!-- End #education -->
-
-<!--<div id="projects" class="background-alt">-->
-<!--    <h2 class="heading">Projects</h2>-->
-<!--    <div class="container">-->
-<!--        <div class="row">-->
-<!--            <div class="project shadow-large">-->
-<!--                <div class="project-image">-->
-<!--                    <img src="images/project.jpg"/>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; End .project-image &ndash;&gt;-->
-<!--                <div class="project-info">-->
-<!--                    <h3>Project Name Here</h3>-->
-<!--                    <p>-->
-<!--                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat-->
-<!--                        laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget-->
-<!--                        efficitur libero. Morbi dapibus porta quam laoreet placerat.-->
-<!--                    </p>-->
-<!--                    <a href="#">View Project</a>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; End .project-info &ndash;&gt;-->
-<!--            </div>-->
-<!--            &lt;!&ndash; End .project &ndash;&gt;-->
-
-<!--            <div class="project shadow-large">-->
-<!--                <div class="project-image">-->
-<!--                    <img src="images/project.jpg"/>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; End .project-image &ndash;&gt;-->
-<!--                <div class="project-info">-->
-<!--                    <h3>Project Name Here</h3>-->
-<!--                    <p>-->
-<!--                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur in iaculis ex. Etiam volutpat-->
-<!--                        laoreet urna. Morbi ut tortor nec nulla commodo malesuada sit amet vel lacus. Fusce eget-->
-<!--                        efficitur libero. Morbi dapibus porta quam laoreet placerat.-->
-<!--                    </p>-->
-<!--                    <a href="#">View Project</a>-->
-<!--                </div>-->
-<!--                &lt;!&ndash; End .project-info &ndash;&gt;-->
-<!--            </div>-->
-<!--            &lt;!&ndash; End .project &ndash;&gt;-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</div>-->
-<!-- End #projects -->
-
-<div id="skills">
-    <h2 class="heading">Skills</h2>
-    <ul>
-        <li>PostgreSQL</li>
-        <li>Apache Maven</li>
-        <li>Atlassian Jira</li>
-        <li>Docker</li>
-        <li>Spring Framework</li>
-        <li>Spring Boot</li>
-        <li>Spring Security</li>
-        <li>Spring JPA</li>
-        <li>Microservice Architecture</li>
-        <li>Liquibase</li>
-        <li>Apache ActiveMQ</li>
-        <li>JUnit</li>
-        <li>JDBC</li>
-        <li>Linux</li>
-        <li>Постановка задач</li>
-        <li>Обучение и развитие</li>
-        <li>Java 11/17</li>
-        <li>REST API</li>
-        <li>CI/CD</li>
-        <li>Grafana</li>
-        <li>Clickhouse</li>
-        <li>GitLab CI</li>
-        <li>Camunda</li>
-        <li>Git</li>
-        <li>Redis</li>
-        <li>Apache Kafka</li>
-        <li>Signoz</li>
-    </ul>
-</div>
-<!-- End #skills -->
-
-<!--<div id="contact">-->
-<!--    <h2>Get in Touch</h2>-->
-<!--    <div id="contact-form">-->
-<!--        <form method="POST" action="https://formspree.io/email@email.com">-->
-<!--            <input type="hidden" name="_subject" value="Contact request from personal website"/>-->
-<!--            <input type="email" name="_replyto" placeholder="Your email" required>-->
-<!--            <textarea name="message" placeholder="Your message" required></textarea>-->
-<!--            <button type="submit">Send</button>-->
-<!--        </form>-->
-<!--    </div>-->
-<!--    &lt;!&ndash; End #contact-form &ndash;&gt;-->
-<!--</div>-->
-<!-- End #contact -->
-
-<footer>
-    <div class="container" id="contact2">
-        <div class="row">
-            <div class="col-sm-5 copyright">
-                <p>
-                    Copyright &copy; <span id="current-year">2024</span> Ali Artukov
-                </p>
+        <!-- Click -->
+        <li class="company reveal">
+          <div class="company__head">
+            <div class="company__logo" aria-hidden="true">C</div>
+            <div>
+              <h3>Click</h3>
+              <p class="muted">Платёжный сервис · Ташкент · март 2022 — н. в. · <span data-duration-since="2022-03">4 года 7 месяцев</span></p>
             </div>
-            <div class="col-sm-2 top">
-                <span id="to-top">
-                        <i class="fa fa-chevron-up" aria-hidden="true"></i>
-                    </span>
+          </div>
+
+          <ol class="roles">
+            <li class="role role--current">
+              <div class="role__head">
+                <h4>Head of Java Development</h4>
+                <span class="role__date">фев 2026 — н. в.</span>
+              </div>
+              <p>Руководитель Java-гильдии компании: отвечаю за все Java-команды, их процессы и вопросы, от найма до архитектурных решений.</p>
+              <ul>
+                <li>Анализирую текущие и завершённые проекты, чтобы формировать лучшие практики и не повторять прошлых ошибок.</li>
+                <li>Внедряю единый стандарт разработки, поддержки и приёма Java-проектов.</li>
+                <li>Развиваю использование AI в разработке и менеджменте: документирование задач и backlog, AI-driven разработка по SDD (spec-driven development) с Claude Code.</li>
+              </ul>
+            </li>
+
+            <li class="role">
+              <div class="role__head">
+                <h4>Java Team Lead</h4>
+                <span class="role__date">мар 2025 — фев 2026</span>
+              </div>
+              <p>Помимо разработки сервисов выполнял роль тимлида команды из 5 разработчиков: декомпозировал крупные задачи и распределял их с учётом опыта и уровня каждого.</p>
+            </li>
+
+            <li class="role">
+              <div class="role__head">
+                <h4>Senior Java Developer</h4>
+                <span class="role__date">ноя 2024 — фев 2026</span>
+              </div>
+              <p>Повышение до Senior по итогам внутреннего ассесмента. Развитие текущих сервисов и новые интеграции с банками и государственными информационными системами.</p>
+            </li>
+
+            <li class="role">
+              <div class="role__head">
+                <h4>Lead Java Developer</h4>
+                <span class="role__date">май 2024 — ноя 2024</span>
+              </div>
+              <p>Первыми среди платёжных сервисов реализовали фискализацию чеков для АЗС с передачей данных о проданном объёме топлива. Решение помогло сохранить несколько крупных партнёров с многомиллиардными оборотами.</p>
+            </li>
+
+            <li class="role">
+              <div class="role__head">
+                <h4>Java Developer</h4>
+                <span class="role__date">мар 2022 — май 2024</span>
+              </div>
+              <ul>
+                <li><strong>OFD</strong>: сервис фискализации онлайн-чеков для платежей в CLICK на микросервисной архитектуре.</li>
+                <li><strong>Gateways</strong>: шлюзы к CyberSource, PayGine, RocketGate, HUMO, soliq.uz, Tasnif и Генпрокуратуре Узбекистана.</li>
+                <li>Настроили CI/CD на GitLab CI и контейнеризацию в Docker, что ускорило развёртывание и тестирование.</li>
+                <li>Настроили мониторинг микросервисов команды: Prometheus, Grafana и SigNoz (логи, метрики, трейсы).</li>
+                <li>Участвовал в проектировании архитектуры системы, что повысило производительность и надёжность сервисов команды.</li>
+              </ul>
+              <ul class="tags">
+                <li>Java 17</li><li>Spring Boot</li><li>Spring Security</li><li>Spring Data JPA</li><li>Feign</li>
+                <li>PostgreSQL</li><li>ActiveMQ Artemis</li><li>Kafka</li><li>Redis</li><li>Vault</li><li>GitLab CI</li><li>Docker</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+
+        <!-- InfinBANK -->
+        <li class="company reveal">
+          <div class="company__head">
+            <div class="company__logo" aria-hidden="true">I</div>
+            <div>
+              <h3>InfinBANK</h3>
+              <p class="muted">Банк · Ташкент · сен 2021 — фев 2022 · 6 месяцев</p>
             </div>
-            <div class="col-sm-5 social">
-                <ul>
-                    <li>
-                        <a href="https://github.com/AliArtukov" target="_blank"><i class="fa fa-github"
-                                                                                   aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://stackoverflow.com/users/19207374/ali-artukov" target="_blank"><i
-                                class="fa fa-stack-overflow"
-                                aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="https://www.linkedin.com/in/aliartukov" target="_blank"><i class="fa fa-linkedin"
-                                                                                            aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="mailto:ali.artukov@gmail.com" target="_blank"><i class="fa fa-google"
-                                                                                  aria-hidden="true"></i></a>
-                    </li>
-                    <li>
-                        <a href="tel:+998949210897" target="_blank"><i class="fa fa-phone-square"
-                                                                       aria-hidden="true"></i></a>
-                    </li>
-                </ul>
+          </div>
+          <ol class="roles">
+            <li class="role">
+              <div class="role__head">
+                <h4>Java Developer</h4>
+                <span class="role__date">сен 2021 — фев 2022</span>
+              </div>
+              <ul>
+                <li>Реализовал проверку лимитов транзакций: на одну операцию, дневной и месячный.</li>
+                <li>Интегрировал Apache Kafka для асинхронного взаимодействия микросервисов.</li>
+                <li>Внедрил понятные сообщения об ошибках для клиентов.</li>
+                <li>Исправлял баги, добавлял функциональность и перезапускал процессы по заявкам из ITSM.</li>
+              </ul>
+              <ul class="tags">
+                <li>Java 11</li><li>Quarkus</li><li>Oracle DB</li><li>Kafka</li><li>JUnit</li><li>Bitbucket</li><li>Linux</li>
+              </ul>
+            </li>
+          </ol>
+        </li>
+
+        <!-- Inflex -->
+        <li class="company reveal">
+          <div class="company__head">
+            <div class="company__logo" aria-hidden="true">In</div>
+            <div>
+              <h3>Inflex</h3>
+              <p class="muted">Стартап · Ташкент · дек 2020 — авг 2021 · 9 месяцев</p>
             </div>
-        </div>
+          </div>
+          <ol class="roles">
+            <li class="role">
+              <div class="role__head">
+                <h4>Junior Java Developer</h4>
+                <span class="role__date">янв 2021 — авг 2021</span>
+              </div>
+              <ul>
+                <li>Разрабатывал микросервисы для MVP PDP Online, платформы онлайн-обучения программированию с последующей стажировкой.</li>
+                <li>Применял подход database per microservice для независимости и масштабируемости сервисов.</li>
+                <li>Интегрировал платформу с платёжным сервисом CLICK для оплаты курсов.</li>
+              </ul>
+              <ul class="tags">
+                <li>Java 11</li><li>Spring Boot</li><li>Spring Security</li><li>PostgreSQL</li><li>Microservices</li>
+              </ul>
+            </li>
+            <li class="role">
+              <div class="role__head">
+                <h4>Intern Java Developer</h4>
+                <span class="role__date">дек 2020 — янв 2021</span>
+              </div>
+              <p>Старт карьеры: разработка и поддержка микросервисов PDP Online.</p>
+            </li>
+          </ol>
+        </li>
+      </ol>
     </div>
+  </section>
+
+  <!-- Skills -->
+  <section class="section section--alt" id="skills">
+    <div class="container">
+      <div class="section__head">
+        <p class="kicker">04 / Навыки</p>
+        <h2>Технологии и компетенции</h2>
+      </div>
+      <div class="skills">
+        <div class="skill-group reveal">
+          <h3>Backend</h3>
+          <ul class="tags tags--lg">
+            <li class="is-strong">Java 17 / 21</li><li class="is-strong">Spring Boot</li><li class="is-strong">Spring Security</li>
+            <li class="is-strong">Spring Data JPA</li><li>Spring Framework</li><li>Quarkus</li><li class="is-strong">JDBC</li><li>Feign Client</li>
+            <li class="is-strong">Maven</li><li>JUnit</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Архитектура</h3>
+          <ul class="tags tags--lg">
+            <li class="is-strong">Microservices</li><li class="is-strong">REST API</li><li>System Design</li>
+            <li>Software Architecture</li><li>Camunda</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Данные и очереди</h3>
+          <ul class="tags tags--lg">
+            <li class="is-strong">PostgreSQL</li><li>Oracle DB</li><li>Redis</li><li>ClickHouse</li><li>Liquibase</li><li>PostgREST</li>
+            <li class="is-strong">ActiveMQ Artemis</li><li>Apache Kafka</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>DevOps и Observability</h3>
+          <ul class="tags tags--lg">
+            <li class="is-strong">Docker</li><li>GitLab CI</li><li>CI/CD</li><li>HashiCorp Vault</li><li>Prometheus</li>
+            <li>Grafana</li><li>SigNoz</li><li>Spring Boot Admin</li><li>Linux</li><li class="is-strong">Git</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>Руководство</h3>
+          <ul class="tags tags--lg">
+            <li class="is-strong">Engineering Management</li><li class="is-strong">Team Leadership</li><li class="is-strong">Постановка задач</li>
+            <li class="is-strong">Обучение и развитие</li><li>Mentoring</li><li>Найм</li><li>Стандарты разработки</li><li>Jira</li>
+          </ul>
+        </div>
+        <div class="skill-group reveal">
+          <h3>AI в разработке</h3>
+          <ul class="tags tags--lg">
+            <li>Claude Code</li><li>Spec-Driven Development</li><li>Model Context Protocol</li><li>Agent Skills</li><li>Subagents</li>
+          </ul>
+        </div>
+      </div>
+      <p class="legend"><span class="legend__mark"></span> продвинутый уровень</p>
+    </div>
+  </section>
+
+  <!-- Learning -->
+  <section class="section" id="learning">
+    <div class="container">
+      <div class="section__head">
+        <p class="kicker">05 / Обучение</p>
+        <h2>Сертификаты, курсы и образование</h2>
+      </div>
+
+      <div class="learning">
+        <div class="learning__col reveal">
+          <h3>Сертификаты</h3>
+          <ul class="list">
+            <li><span>Claude Code 101</span><span class="list__meta">Anthropic · 2026</span></li>
+            <li><span>Introduction to agent skills</span><span class="list__meta">Anthropic · 2026</span></li>
+            <li><span>Introduction to subagents</span><span class="list__meta">Anthropic · 2026</span></li>
+            <li><span>Introduction to Model Context Protocol</span><span class="list__meta">Anthropic · 2026</span></li>
+            <li><span>Java Skill Assessment</span><span class="list__meta">LinkedIn · 2023</span></li>
+          </ul>
+        </div>
+
+        <div class="learning__col reveal">
+          <h3>Курсы</h3>
+          <ul class="list">
+            <li><span>Java Bootcamp</span><span class="list__meta">PDP IT Academy · 2020</span></li>
+            <li><span>Java Development</span><span class="list__meta">Udemy · 2020</span></li>
+            <li><span>Git. Базовый курс</span><span class="list__meta">GeekBrains · 2021</span></li>
+            <li><span>Python for beginners</span><span class="list__meta">Sololearn · 2021</span></li>
+            <li><span>Безопасность в интернете</span><span class="list__meta">Stepik · 2018</span></li>
+          </ul>
+        </div>
+
+        <div class="learning__col reveal">
+          <h3>Образование</h3>
+          <ul class="list">
+            <li><span>Колледж угольной промышленности</span><span class="list__meta">Среднее специальное · 2013–2016</span></li>
+          </ul>
+          <h3 class="mt">Языки</h3>
+          <ul class="langs">
+            <li><span>Узбекский</span><span class="bar" style="--v:100%"></span><span class="list__meta">родной</span></li>
+            <li><span>Таджикский</span><span class="bar" style="--v:100%"></span><span class="list__meta">родной</span></li>
+            <li><span>Русский</span><span class="bar" style="--v:80%"></span><span class="list__meta">профессиональный</span></li>
+            <li><span>Английский</span><span class="bar" style="--v:35%"></span><span class="list__meta">базовый</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section section--contact" id="contact">
+    <div class="container contact reveal">
+      <p class="kicker">06 / Контакты</p>
+      <h2>Давайте обсудим</h2>
+      <p class="contact__lead">Открыт к общению о Java-архитектуре, платёжных системах, построении инженерных команд и применении AI в разработке.</p>
+      <a class="contact__email" href="mailto:ali.artukov@gmail.com">ali.artukov@gmail.com</a>
+      <ul class="socials">
+        <li><a href="https://www.linkedin.com/in/aliartukov" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M8 10v7M8 7v.01M12 17v-4a2 2 0 0 1 4 0v4M12 10v7"/></svg>LinkedIn</a></li>
+        <li><a href="https://github.com/AliArtukov" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 19c-4 1.3-4-2-6-2.5M15 21v-3.5c0-1 .1-1.4-.5-2 2.8-.3 5.5-1.4 5.5-6a4.6 4.6 0 0 0-1.3-3.2 4.2 4.2 0 0 0-.1-3.2s-1.1-.3-3.5 1.3a12.3 12.3 0 0 0-6.2 0C6.5 2.8 5.4 3.1 5.4 3.1a4.2 4.2 0 0 0-.1 3.2A4.6 4.6 0 0 0 4 9.5c0 4.6 2.7 5.7 5.5 6-.6.6-.6 1.2-.5 2V21"/></svg>GitHub</a></li>
+        <li><a href="https://stackoverflow.com/users/19207374/ali-artukov" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 15v5h14v-5M8 16h6M8.5 12.5l6 1.3M10 8.5l5.4 2.8M12.5 4.7l4.3 4.3"/></svg>Stack Overflow</a></li>
+        <li><a href="tel:+998949210897">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg>+998 94 921-08-97</a></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <p>© <span id="year">2026</span> Ali Artukov</p>
+    <a href="#top" class="footer__top">Наверх ↑</a>
+  </div>
 </footer>
-<!-- End footer -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-<script src="js/scripts.min.js"></script>
+<script src="assets/main.js" defer></script>
 </body>
-
 </html>
