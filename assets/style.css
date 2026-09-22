@@ -185,8 +185,8 @@ strong { font-weight: 600; color: var(--text); }
   font-family: var(--mono); font-size: 13px; color: var(--text-2);
 }
 .dot {
-  width: 8px; height: 8px; border-radius: 50%; background: #22c55e;
-  box-shadow: 0 0 0 4px rgba(34, 197, 94, .18);
+  width: 8px; height: 8px; border-radius: 50%; background: var(--accent);
+  box-shadow: 0 0 0 4px var(--accent-soft);
 }
 
 .hero__title {
@@ -462,7 +462,7 @@ strong { font-weight: 600; color: var(--text); }
 }
 
 /* ==========================================================================
-   Print: turns the page into a clean one-column CV
+   Print: turns the page into a compact one-column CV
    ========================================================================== */
 @media print {
   :root, :root[data-theme="dark"] {
@@ -470,36 +470,67 @@ strong { font-weight: 600; color: var(--text); }
     --text: #000; --text-2: #222; --muted: #555; --accent: #1f4fd1; --accent-soft: transparent;
     color-scheme: light;
   }
-  @page { margin: 14mm 14mm; }
-  body { font-size: 11pt; line-height: 1.45; }
-  .nav, .skip-link, .hero__cta, .hero__grid, .footer, .legend, .contact__lead, #highlights { display: none !important; }
+  @page { margin: 12mm 14mm; }
+  body { font-size: 9.5pt; line-height: 1.4; }
+  .nav, .skip-link, .hero__cta, .hero__grid, .footer, .legend, .contact__lead, .kicker,
+  .stats, .dot, #highlights, .company__logo { display: none !important; }
   .js .reveal { opacity: 1; transform: none; }
-  .hero { padding: 0 0 12pt; border: 0; }
-  .hero__title { margin-top: 8pt; font-size: 28pt; color: #000; background: none; -webkit-text-fill-color: #000; }
-  .eyebrow { border: 0; padding: 0; }
-  .dot { display: none; }
-  .hero__lead { font-size: 12pt; margin-top: 6pt; }
-  .stats { display: none; }
-  .section { padding: 12pt 0; border: 0; }
-  .section__head { margin-bottom: 10pt; }
-  .section__head h2 { font-size: 15pt; }
-  .kicker { display: none; }
-  .two-col { grid-template-columns: 1fr; gap: 6pt; }
-  .prose { font-size: 11pt; gap: 6pt; }
+  h2, h3, h4 { break-after: avoid; }
+
+  .hero { padding: 0 0 6pt; border: 0; }
+  .eyebrow { border: 0; padding: 0; font-size: 10pt; }
+  .hero__title { margin-top: 2pt; font-size: 24pt; color: #000; background: none; -webkit-text-fill-color: #000; }
+  .hero__lead { font-size: 10.5pt; margin-top: 4pt; max-width: none; }
+  .hero__meta { margin-top: 4pt; font-size: 9pt; }
+  .hero__meta::after { content: "ali.artukov@gmail.com · linkedin.com/in/aliartukov"; }
+
+  .section, .section--alt, .section--contact { padding: 8pt 0; border: 0; }
+  .section__head { margin-bottom: 6pt; }
+  .section__head h2 { margin: 0; font-size: 13pt; }
+  .section__sub { margin-top: 2pt; }
+  .two-col { grid-template-columns: 1fr; gap: 4pt; }
+  .two-col .section__head h2 { font-size: 13pt; }
+  .prose { font-size: 9.5pt; gap: 4pt; }
   .goal { padding: 0; border: 0; }
-  .company { padding: 0; border: 0; break-inside: auto; }
-  .company__head { margin-bottom: 8pt; }
+
+  .timeline { gap: 10pt; }
+  .company { padding: 0; border: 0; }
+  .company__head { margin-bottom: 6pt; break-after: avoid; }
+  .company__head h3 { font-size: 12pt; }
+  .company__head p { font-size: 9pt; }
+  .roles { gap: 6pt; padding-left: 16pt; }
+  .role::before { left: -16pt; width: 9px; height: 9px; top: 4px; }
+  .roles::before { left: 3px; }
   .role { break-inside: avoid; }
-  .roles { gap: 10pt; }
-  .skills, .learning { grid-template-columns: 1fr 1fr; gap: 10pt; }
-  .skill-group { padding: 0; border: 0; }
-  .tags li { font-size: 9pt; padding: 1pt 6pt; }
-  .card, .card:hover { box-shadow: none; transform: none; }
-  .contact { text-align: left; }
-  .contact h2 { font-size: 15pt; }
-  .contact__email { margin-top: 6pt; font-size: 12pt; border: 0; }
-  .socials { justify-content: flex-start; margin-top: 6pt; }
-  .socials a { border: 0; padding: 0 12pt 0 0; }
+  .role__head h4 { font-size: 10pt; }
+  .role > p, .role > ul:not(.tags) li { font-size: 9.5pt; }
+  .role > ul:not(.tags) { margin-top: 3pt; gap: 1pt; }
+
+  /* Tags print as a plain comma-separated line */
+  .tags { display: block; margin-top: 3pt; color: var(--muted); font-size: 9pt; }
+  .tags li, .tags li:has(> a) { display: inline; padding: 0; border: 0; background: none; font: inherit; color: inherit; }
+  .tags li > a { display: inline; padding: 0; }
+  .tags li:not(:last-child)::after { content: ", "; }
   .tags li > a::after, .list--links a::after { content: none; }
-  .socials a[href^="http"]::after { content: " (" attr(href) ")"; font-size: 9pt; color: #555; }
+
+  .skills { grid-template-columns: 1fr 1fr 1fr; gap: 8pt 14pt; }
+  .skill-group { padding: 0; border: 0; break-inside: avoid; }
+  .skill-group h3 { font-size: 10pt; }
+
+  .learning { grid-template-columns: 1fr 1fr 1fr; gap: 14pt; }
+  .learning__col { break-inside: avoid; }
+  .learning h3 { font-size: 10pt; margin-bottom: 4pt; }
+  .mt { margin-top: 8pt; }
+  .list li, .list--links a { display: block; padding: 1.5pt 0; }
+  .list li { border-bottom: 0; }
+  .list__meta { font-size: 8.5pt; }
+  .list__meta::before { content: " · "; }
+  .list--links li:has(> a) { padding: 0; }
+  .langs { gap: 3pt; }
+  .langs li { display: flex; gap: 6pt; }
+  .bar { display: none; }
+
+  /* Contacts are already in the header line */
+  #contact { display: none; }
+  .card, .card:hover { box-shadow: none; transform: none; }
 }

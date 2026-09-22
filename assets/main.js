@@ -41,9 +41,16 @@
 
   document.querySelectorAll('[data-years-since]').forEach(function (el) {
     var m = monthsSince(el.dataset.yearsSince);
-    el.textContent = el.hasAttribute('data-precise')
-      ? (Math.floor(m / 6) / 2).toString().replace('.', I18N.decimal)
-      : Math.floor(m / 12);
+    var value = el.hasAttribute('data-precise') ? Math.floor(m / 6) / 2 : Math.floor(m / 12);
+    el.textContent = value.toString().replace('.', I18N.decimal);
+
+    // The unit lives in the stat caption: "4,5 года", "5 лет", "1 year"
+    var unit = el.closest('.stat') && el.closest('.stat').querySelector('[data-years-unit]');
+    if (unit) {
+      // Russian fractions take the genitive singular ("4,5 года"); "5+" reads as "лет"
+      var plus = el.parentNode.textContent.indexOf('+') !== -1;
+      unit.textContent = value % 1 && !isEn ? I18N.year[1] : plural(plus ? 5 : value, I18N.year);
+    }
   });
 
   document.querySelectorAll('[data-years-ordinal]').forEach(function (el) {
