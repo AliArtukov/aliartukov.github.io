@@ -332,7 +332,6 @@ strong { font-weight: 600; color: var(--text); }
 }
 .skill-group h3 { font-size: 16px; }
 .tags--lg li { font-size: 13px; padding: 5px 12px; }
-.tags li.is-strong { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); background: var(--accent-soft); }
 
 /* Linked tags: the whole pill is the link */
 .tags li:has(> a) { padding: 0; transition: border-color .15s, color .15s; }
@@ -346,7 +345,6 @@ strong { font-weight: 600; color: var(--text); }
 }
 .tags li > a:hover::after, .tags li > a:focus-visible::after { opacity: .8; transform: none; }
 .legend { display: flex; align-items: center; gap: 8px; margin-top: 20px; font-size: 13px; color: var(--muted); }
-.legend__mark { width: 14px; height: 14px; border-radius: 4px; background: var(--accent-soft); border: 1px solid var(--accent); }
 
 /* Learning */
 .learning { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
