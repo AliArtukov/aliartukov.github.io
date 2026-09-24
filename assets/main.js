@@ -151,6 +151,25 @@
   }
 
   // ---------------------------------------------------------------------------
+  // Public visit counter from GoatCounter; stays hidden if it is unavailable
+  // ---------------------------------------------------------------------------
+  var views = document.getElementById('views');
+  if (views && window.fetch) {
+    fetch('https://aliartukov.goatcounter.com/counter/TOTAL.json')
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+      .then(function (data) {
+        // GoatCounter returns a pre-formatted string such as "1,234"
+        var n = parseInt(String(data.count).replace(/\D/g, ''), 10);
+        if (!n) return;
+        var words = isEn ? ['visit', 'visits'] : ['посещение', 'посещения', 'посещений'];
+        views.querySelector('span').textContent =
+          n.toLocaleString(isEn ? 'en-US' : 'ru-RU') + ' ' + plural(n, words);
+        views.hidden = false;
+      })
+      .catch(function () {});
+  }
+
+  // ---------------------------------------------------------------------------
   // "Resume in PDF" uses the print stylesheet, so the CV never goes stale
   // ---------------------------------------------------------------------------
   document.getElementById('print-cv').addEventListener('click', function () {
