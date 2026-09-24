@@ -28,6 +28,8 @@
 Подключён [GoatCounter](https://www.goatcounter.com) (без cookies, баннер согласия не нужен):
 скрипт в конце обеих страниц, дашборд на https://aliartukov.goatcounter.com.
 Визиты с `localhost` не считаются.
+Общее число посещений выводится в футере (`/counter/TOTAL.json`, требует включённой настройки
+«Allow adding visitor counts on your website» в GoatCounter); если счётчик недоступен, блок скрыт.
 
 ## Локальный просмотр
 
